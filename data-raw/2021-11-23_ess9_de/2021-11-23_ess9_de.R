@@ -14,7 +14,7 @@ recode_polpart <- function(var){
 
 # Load data --------------------------------------------------------------------
 
-ess <- read_dta("data-raw/ess9_de/ESS9DE.dta", 
+ess <- read_dta("data-raw/2021-11-23_ess9_de/ESS9DE.dta", 
                encoding = "latin1")
 
 # Political participation battery in the ESS -----------------------------------
@@ -76,6 +76,7 @@ ess <- ess %>%
                                               na.rm = TRUE),
                            NA_real_, # Exclude values > 99th percentile
                            as.numeric(netustm)),
+         lrscale = as.numeric(lrscale),
          region_de = if_else(
            region %in% c("DE3", "DE4", "DE8", "DED", "DEE", "DEG"), 
            "East", 
@@ -87,6 +88,7 @@ ess <- ess %>%
     agea,
     region_de, 
     netustm,
+    lrscale,
     vote,
     contplt,
     wrkprty,
