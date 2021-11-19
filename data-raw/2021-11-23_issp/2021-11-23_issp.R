@@ -34,7 +34,7 @@ recode_polpart <- function(var){
 # DATEYR: year of the survey
 # WEIGHT: weight
 
-issp_raw <- read_dta("data-raw/2021-11-30_issp/ZA6670_v2-0-0.dta") 
+issp_raw <- read_dta("data-raw/2021-11-23_issp/ZA6670_v2-0-0.dta") 
 
 issp <- issp_raw %>%
   mutate(
@@ -100,7 +100,7 @@ wb <- wb_raw %>%
 # v2x_polyarchy: Electoral democracy index
 # v2x_corr: Corruption index
 
-vdem_raw <- readRDS("data-raw/2021-11-30_issp/V-Dem-CY-Core-v11.1.rds")
+vdem_raw <- readRDS("data-raw/2021-11-23_issp/V-Dem-CY-Core-v11.1.rds")
 
 vdem <- vdem_raw %>%
   select(country_text_id, year, v2x_polyarchy, v2x_corr) %>%
@@ -138,4 +138,4 @@ attr(master$corruption, "label") <- "Corruption index"
 
 # Save dataset ------------------------------------------------------------
 
-saveRDS(master, "data/2021-11-30_issp.rds")
+saveRDS(master, "data/2021-11-23_issp.rds")

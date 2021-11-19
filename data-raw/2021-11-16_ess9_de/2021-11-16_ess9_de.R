@@ -14,7 +14,7 @@ recode_polpart <- function(var){
 
 # Load data --------------------------------------------------------------------
 
-ess <- read_dta("data-raw/2021-11-23_ess9_de/ESS9DE.dta", 
+ess <- read_dta("data-raw/2021-11-16_ess9_de/ESS9DE.dta", 
                encoding = "latin1")
 
 # Political participation battery in the ESS -----------------------------------
@@ -102,4 +102,4 @@ ess <- ess %>%
 
 # Save data --------------------------------------------------------------------
 
-saveRDS(ess, file = "data/2021-11-23_ess9_de.rds")
+saveRDS(ess, file = "data/2021-11-16_ess9_de.rds")
