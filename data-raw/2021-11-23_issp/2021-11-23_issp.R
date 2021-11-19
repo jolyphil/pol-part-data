@@ -131,7 +131,7 @@ attr(master$contpol, "label") <- "Contact a politician, country mean"
 attr(master$donate, "label") <- "Donate money or raise funds, country mean"
 attr(master$contmed, "label") <- "Contact media, country mean"
 attr(master$expint, "label") <- "Express views on the internet, country mean"
-attr(master$trust_gov, "label") <- "Trust in government"
+attr(master$trust_gov, "label") <- "Trust in government, country mean"
 attr(master$dem_index, "label") <- "Electoral democracy index"
 attr(master$corruption, "label") <- "Corruption index"
 
