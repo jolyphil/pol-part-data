@@ -106,6 +106,21 @@ main <- idea |>
   left_join(wb, by = c("ccode", "year"))
 
 
+# Add variable labels -----------------------------------------------------
+
+attr(main$country, "label") <- "Country"
+attr(main$ccode, "label") <- "Country code, ISO-3C"
+attr(main$year, "label") <- "Year"
+attr(main$turnout, "label") <- "Voter turnout based on registered voters"
+attr(main$compulsory_voting, "label") <- "Compulsory voting"
+attr(main$population, "label") <- "Population, in thousands"
+attr(main$dem_index, "label") <- "Electoral democracy index"
+attr(main$corruption, "label") <- "Corruption index"
+attr(main$elect_system, "label") <- "Electoral system"
+attr(main$gdp_cap, "label") <- "GDP per capita, PPP, in thousands of dollars"
+attr(main$gdp_growth, "label") <- "GDP growth, in percent "
+
+
 # Save dataset ------------------------------------------------------------
 
 saveRDS(main, "data/2021-12-07_idea.rds")
