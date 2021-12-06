@@ -35,7 +35,7 @@ idea <- idea_raw |>
   slice_max(year) |> 
   ungroup() |> 
   mutate(voter_turnout = percent_as_numeric(voter_turnout),
-         population = parse_number(population) / 1000,
+         population = parse_number(population) / 1000000,
          ccode = countrycode(country,
                              origin = "country.name",
                              destination = "iso3c"),
@@ -113,7 +113,7 @@ attr(main$ccode, "label") <- "Country code, ISO-3C"
 attr(main$year, "label") <- "Year"
 attr(main$turnout, "label") <- "Voter turnout based on registered voters"
 attr(main$compulsory_voting, "label") <- "Compulsory voting"
-attr(main$population, "label") <- "Population, in thousands"
+attr(main$population, "label") <- "Population, in millions"
 attr(main$dem_index, "label") <- "Electoral democracy index"
 attr(main$corruption, "label") <- "Corruption index"
 attr(main$elect_system, "label") <- "Electoral system"
