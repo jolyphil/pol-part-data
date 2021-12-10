@@ -132,6 +132,7 @@ attr(ess$demo, "label") <- "Taken part in lawful public demonstration, last 12 m
 attr(ess$boycott, "label") <- "Boycotted certain products, last 12 months"
 attr(ess$online_part, "label") <- "Posted or shared anything about politics online, last 12 months"
 attr(ess$netuse, "label") <- "Internet use per day, in minutes"
+attr(ess$lrscale, "label") <- "Placement on left right scale"
 attr(ess$gender, "label") <- "Gender"
 attr(ess$age, "label") <- "Age"
 attr(ess$income, "label") <- "Household's total net income, all sources"
