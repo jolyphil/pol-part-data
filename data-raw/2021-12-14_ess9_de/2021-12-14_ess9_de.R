@@ -77,6 +77,20 @@ ess <- ess %>%
                                               na.rm = TRUE),
                            NA_real_, # Exclude values > 99th percentile
                            as.numeric(netustm)),
+         pol_inter = case_when(polintr == 1 ~ "Very interested",
+                               polintr == 2 ~ "Quite interested",
+                               polintr == 3 ~ "Hardly interested",
+                               polintr == 4 ~ "Not at all interested"),
+         pol_inter = factor(pol_inter, levels = c("Not at all interested",
+                                                  "Hardly interested",
+                                                  "Quite interested",
+                                                  "Very interested")),
+         close_party = case_when(clsprty == 1 ~ "Yes",
+                                 clsprty == 2 ~ "No"),
+         close_party = factor(close_party, levels = c("No", "Yes")),
+         trust_parl = as.numeric(trstprl),
+         trust_legal = as.numeric(trstlgl),
+         trust_parties = as.numeric(trstprt),
          lrscale = as.numeric(lrscale),
          region_de = if_else(
            region %in% c("DE3", "DE4", "DE8", "DED", "DEE", "DEG"), 
@@ -112,6 +126,11 @@ ess <- ess %>%
     online_part,
     netuse,
     lrscale,
+    pol_inter,
+    close_party,
+    trust_parl,
+    trust_legal,
+    trust_parties,
     gender,
     age,
     income,
@@ -132,6 +151,11 @@ attr(ess$demo, "label") <- "Taken part in lawful public demonstration, last 12 m
 attr(ess$boycott, "label") <- "Boycotted certain products, last 12 months"
 attr(ess$online_part, "label") <- "Posted or shared anything about politics online, last 12 months"
 attr(ess$netuse, "label") <- "Internet use per day, in minutes"
+attr(ess$pol_inter, "label") <- "How interested in politics"
+attr(ess$close_party, "label") <- "Feel closer to a particular party than all other parties"
+attr(ess$trust_parl, "label") <- "Trust in country's parliament"
+attr(ess$trust_legal, "label") <- "Trust in the legal system"
+attr(ess$trust_parties, "label") <- "Trust in political parties"
 attr(ess$lrscale, "label") <- "Placement on left right scale"
 attr(ess$gender, "label") <- "Gender"
 attr(ess$age, "label") <- "Age"
