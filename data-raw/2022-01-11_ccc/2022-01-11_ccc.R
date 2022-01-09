@@ -25,7 +25,7 @@ reshape_census_data <- function(indicator, filepath) {
 
 # Load CCC data -----------------------------------------------------------
 
-ccc_raw <- read.csv("data-raw/2022-01-11_CCC/ccc_compiled.csv")
+ccc_raw <- read.csv("data-raw/2022-01-11_ccc/ccc_compiled.csv")
 
 ccc <- ccc_raw %>%
   filter(date >= "2019-01-01" & date <= "2019-12-31") %>%
@@ -37,19 +37,19 @@ ccc <- ccc_raw %>%
 # Load US Census data -----------------------------------------------------
 
 population <- reshape_census_data(indicator = "population",
-                                  filepath = "data-raw/2022-01-11_CCC/census_population.txt")
+                                  filepath = "data-raw/2022-01-11_ccc/census_population.txt")
 education <- reshape_census_data(indicator = "ba_degree",
-                                  filepath = "data-raw/2022-01-11_CCC/census_education.txt")
+                                  filepath = "data-raw/2022-01-11_ccc/census_education.txt")
 income <- reshape_census_data(indicator = "med_income",
-                                 filepath = "data-raw/2022-01-11_CCC/census_income.txt") |> 
+                                 filepath = "data-raw/2022-01-11_ccc/census_income.txt") |> 
   mutate(med_income = med_income / 1000)
 employment <- reshape_census_data(indicator = "employ",
-                              filepath = "data-raw/2022-01-11_CCC/census_employment.txt")
+                              filepath = "data-raw/2022-01-11_ccc/census_employment.txt")
 
 
 # Load election data ------------------------------------------------------
 
-election <- read_excel("data-raw/2022-01-11_CCC/federalelections2016.xlsx", 
+election <- read_excel("data-raw/2022-01-11_ccc/federalelections2016.xlsx", 
                        sheet = 3, 
                        range = "A4:G55") |> 
   select(c(1, 4, 5, 7))
@@ -85,7 +85,7 @@ attr(main$state, "label") <- "State"
 attr(main$protest, "label") <- "Standardized protest level"
 attr(main$n_events, "label") <- "Number of protest events"
 attr(main$n_people, "label") <- "Number of participants, in thousands"
-attr(main$n_population, "label") <- "Population, in millions"
+attr(main$population, "label") <- "Population, in millions"
 attr(main$ba_degree, "label") <- "University degree, pop. 18-24 years, in percent"
 attr(main$med_income, "label") <- "Median household income, in thousands of dollars"
 attr(main$employ, "label") <- "Labor force participation rate, in percent"
