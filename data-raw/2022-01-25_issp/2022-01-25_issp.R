@@ -69,7 +69,7 @@ issp <- issp_raw %>%
                                destination = "country.name"),
     lrscale = case_when(V48 %in% c(98, 99) ~ NA_real_,
                         TRUE ~ as.numeric(V48)),
-    trust_gov = case_when(V49 %in% 1:5 ~ as.numeric(V49)),
+    satis_demo = case_when(V62 %in% 0:10 ~ as.numeric(V62)),
     gender = case_when(SEX == 1 ~ "Male",
                        SEX == 2 ~ "Female"),
     gender = factor(gender, levels = c("Male", "Female")),
@@ -112,7 +112,7 @@ issp <- issp_raw %>%
     contmed,
     expint,
     lrscale,
-    trust_gov,
+    satis_demo,
     gender,
     age,
     edu,
@@ -175,7 +175,7 @@ attr(main$donate, "label") <- "Donated money or raised funds"
 attr(main$contmed, "label") <- "Contacted media"
 attr(main$expint, "label") <- "Expressed views on the internet"
 attr(main$lrscale, "label") <- "Left-right self-placement"
-attr(main$trust_gov, "label") <- "Trust in government"
+attr(main$satis_demo, "label") <- "Satisfaction with democracy"
 attr(main$gender, "label") <- "Gender"
 attr(main$age, "label") <- "Age"
 attr(main$edu, "label") <- "Level of education"
