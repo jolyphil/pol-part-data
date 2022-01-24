@@ -101,7 +101,12 @@ ess <- ess %>%
          edu = case_when(eisced %in% c(1:2) ~ "Low", 
                          eisced %in% c(3:4) ~ "Middle",
                          eisced %in% c(5:7) ~ "High"),
-         edu = factor(edu, levels = c("Low", "Middle", "High"))
+         edu = factor(edu, levels = c("Low", "Middle", "High")),
+         union = case_when(UNION %in% c(1, 2) ~ "Yes",
+                           UNION %in% c(0, 3) ~ "No"),
+         union = factor(union),
+         unemp = case_when(MAINSTAT == 2 ~ "Unemployed",
+                           MAINSTAT %in% c(1, 3:9) ~ "Other")
   ) %>%
   rename(contact = contplt,
          work_party = wrkprty,
